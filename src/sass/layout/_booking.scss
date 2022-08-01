@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+
+.section-booking {
+  padding-block: 15rem;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+
+  @include responsive(landscape-tablet) {
+    padding-block: 8rem;
+  }
+
+  .booking {
+    background-image: url(../../assets/img/nat-10.jpg);
+    background-size: cover;
+    background-position: bottom;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+
+    &__form {
+      padding: 4rem 6rem;
+      width: 55%;
+      height: inherit;
+      background-color: rgba($color-white, 0.85);
+      clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+
+      @include responsive(laptop) {
+        width: 63%;
+      }
+
+      @include responsive(landscape-tablet) {
+        width: 100%;
+        clip-path: none;
+      }
+
+      @include responsive(portrait-tablet) {
+        padding: 3rem 4.5rem;
+      }
+    }
+  }
+}

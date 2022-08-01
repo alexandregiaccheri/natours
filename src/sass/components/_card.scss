@@ -1,0 +1,251 @@
+@use "../abstracts" as *;
+
+.card {
+  position: relative;
+  height: 50rem;
+
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    width: 50%;
+    margin-bottom: 5rem;
+  }
+
+  @include responsive(portrait-tablet) {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  }
+
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+
+  &__side {
+    position: absolute;
+    width: 100%;
+    height: 50rem;
+
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    transition: all 0.8s ease;
+    overflow: hidden;
+
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    }
+
+    @include responsive(portrait-tablet) {
+      position: relative;
+      height: auto;
+      box-shadow: none;
+    }
+
+    &--front {
+      background-color: $color-white;
+
+      @include responsive(portrait-tablet) {
+        padding-bottom: 4rem;
+      }
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+
+      @media only screen and (max-width: 56.25em),
+        only screen and (hover: none) {
+        transform: rotateY(0);
+        left: 100%;
+      }
+
+      @include responsive(portrait-tablet) {
+        margin-top: -4rem;
+        padding-top: 9rem;
+        left: 0;
+        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      transform: rotateY(0);
+    }
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT
+  &__picture {
+    height: 23rem;
+
+    background-blend-mode: screen;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../assets/img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../assets/img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../assets/img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    width: 65%;
+    position: absolute;
+    inset: 12rem 9.5rem;
+
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: end;
+    text-transform: uppercase;
+
+    color: $color-white;
+
+    @include responsive(laptop) {
+      font-size: 2.4rem;
+    }
+
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      inset: 12rem 13.3rem;
+    }
+
+    @include responsive(portrait-tablet) {
+      inset: 12rem 15rem;
+    }
+
+    @include responsive(phone) {
+      inset: 12rem 14.5rem;
+    }
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding-inline: 2rem;
+    padding-top: 1rem;
+
+    ul {
+      margin-inline: auto;
+      width: 80%;
+
+      list-style: none;
+
+      li {
+        padding: 1rem;
+
+        font-size: 1.5rem;
+        text-align: center;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light-2;
+        }
+      }
+    }
+  }
+
+  // BACK
+
+  &__cta {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    align-items: center;
+    justify-content: center;
+
+    @include responsive(portrait-tablet) {
+      gap: 3rem;
+      padding-bottom: 7rem;
+    }
+
+    &__price-box {
+      text-align: center;
+      color: $color-white;
+
+      &--only {
+        font-size: 1.6rem;
+      }
+
+      &--value {
+        font-size: 6rem;
+        font-weight: 100;
+      }
+    }
+  }
+}

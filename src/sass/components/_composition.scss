@@ -1,0 +1,95 @@
+@use "../abstracts" as *;
+
+.composition {
+  position: relative;
+
+  @include responsive(landscape-tablet) {
+    height: 20rem;
+  }
+
+  &__img {
+    width: 55%;
+    position: absolute;
+
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    outline-offset: 1.2rem;
+    transition: all 0.2s;
+
+    &--p1 {
+      top: -2rem;
+      left: 0;
+    }
+
+    &--p2 {
+      top: 2rem;
+      right: 0;
+    }
+
+    &--p3 {
+      top: 10rem;
+      left: 20%;
+    }
+
+    &:hover {
+      box-shadow: 0 2.5rem 6rem rgba($color-black, 0.2);
+      outline: 1rem solid $color-primary;
+      transform: scale(1.05) translateY(-5px);
+      z-index: 20;
+    }
+  }
+
+  &:hover &__img:not(:hover) {
+    transform: scale(0.95);
+  }
+
+  @include responsive(landscape-tablet) {
+    &__img {
+      width: 35%;
+
+      &--p1 {
+        top: 20%;
+        left: 0;
+
+        &:hover {
+          transform: none;
+          z-index: auto;
+        }
+      }
+
+      &--p2 {
+        top: 20%;
+        right: 0;
+
+        &:hover {
+          transform: none;
+          z-index: auto;
+        }
+      }
+
+      &--p3 {
+        top: 0;
+        left: 50%;
+
+        transform: translateX(-50%) scale(1.1);
+
+        &:hover {
+          transform: translateX(-50%) scale(1.1);
+          z-index: auto;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+        outline: none;
+      }
+    }
+
+    &:hover &__img:not(:hover) {
+      transform: scale(1);
+    }
+
+    &:hover &__img--p3:not(:hover) {
+      transform: translateX(-50%) scale(1.1);
+    }
+  }
+}

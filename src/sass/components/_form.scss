@@ -1,0 +1,129 @@
+@use "../abstracts" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    font-size: 1.5rem;
+
+    @include responsive(landscape-tablet) {
+      max-width: 100%;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    margin-left: 1.5rem;
+
+    font-size: 1.5rem;
+
+    transition: all 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5rem);
+  }
+
+  &__input {
+    display: inline-block;
+    height: 4.5rem;
+    padding-left: 1.5rem;
+
+    font-family: inherit;
+    font-size: 1.5rem;
+
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+    color: inherit;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-gray-dark-2;
+    }
+  }
+
+  &__radio-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include responsive(portrait-tablet) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__radio-group {
+    width: 50%;
+
+    @include responsive(portrait-tablet) {
+      width: 100%;
+    }
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+
+  &__radio-button {
+    display: inline-flex;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      margin: auto;
+      height: 1.2rem;
+      width: 1.2rem;
+
+      border-radius: 50%;
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    position: relative;
+    width: fit-content;
+    padding: 1.5rem 4rem;
+
+    text-transform: uppercase;
+
+    border-radius: 100px;
+    border: none;
+    transition: all 0.1s;
+  }
+}

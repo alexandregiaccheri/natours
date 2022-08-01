@@ -1,0 +1,71 @@
+@use "../abstracts" as *;
+
+.footer {
+  padding-block: 10rem;
+  font-size: 1.4rem;
+  background-color: $color-gray-dark-3;
+  color: $color-gray-light;
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  &__logo {
+    width: 15rem;
+  }
+
+  &__navigation {
+    display: inline-block;
+    padding-top: 2rem;
+    border-top: 1px solid $color-gray-dark;
+
+    @include responsive(landscape-tablet) {
+      width: 100%;
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 1.5rem;
+
+    list-style: none;
+
+    @include responsive(landscape-tablet) {
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+
+      text-decoration: none;
+      text-transform: uppercase;
+
+      background-color: $color-gray-dark-3;
+      color: $color-gray-light;
+      transition: all 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      transform: rotate(3deg) scale(1.5);
+    }
+  }
+
+  &__copyright {
+    float: right;
+    width: 80%;
+    padding-top: 2rem;
+    border-top: 1px solid $color-gray-dark;
+
+    @include responsive(landscape-tablet) {
+      width: 100%;
+    }
+  }
+}

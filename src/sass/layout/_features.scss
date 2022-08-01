@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+
+.section-features {
+  margin-top: -10rem;
+  padding-block: 20rem;
+
+  @include responsive(laptop) {
+    margin-top: -7rem;
+    padding-block: 12rem;
+  }
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../assets/img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-4deg);
+
+  & > * {
+    transform: skewY(4deg);
+  }
+}

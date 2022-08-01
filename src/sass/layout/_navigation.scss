@@ -1,0 +1,186 @@
+@use "../abstracts" as *;
+
+.navigation {
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__button {
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7rem;
+    width: 7rem;
+
+    @include responsive(landscape-tablet) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include responsive(landscape-tablet) {
+      top: 3rem;
+      right: 3rem;
+      height: 6rem;
+      width: 6rem;
+    }
+
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 200;
+
+    & span {
+      position: relative;
+      display: inline-block;
+      width: 4rem;
+      height: 0.2rem;
+
+      background-color: $color-gray-dark;
+      transition: all 0.2s;
+    }
+
+    & span::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      height: 0.2rem;
+      width: 4rem;
+
+      background-color: $color-gray-dark;
+      transform: translateY(1rem);
+      transition: all 0.2s;
+    }
+
+    & span::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      height: 0.2rem;
+      width: 4rem;
+
+      background-color: $color-gray-dark;
+      transform: translateY(-1rem);
+      transition: all 0.2s ease-out;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:hover span::after {
+      transform: translateY(1.1rem);
+    }
+
+    &:hover span::before {
+      transform: translateY(-1.1rem);
+    }
+  }
+
+  &__checkbox:checked ~ &__button span {
+    background-color: transparent;
+
+    &::after {
+      transform: rotate(225deg);
+    }
+
+    &::before {
+      transform: rotate(-225deg);
+    }
+  }
+
+  &__background {
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+
+    @include responsive(landscape-tablet) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+
+    height: 6rem;
+    width: 6rem;
+
+    @include responsive(landscape-tablet) {
+      top: 4.5rem;
+      right: 4.5rem;
+      height: 4rem;
+      width: 4rem;
+    }
+
+    border-radius: 50%;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+    z-index: 100;
+  }
+
+  &__nav {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+    visibility: hidden;
+    z-index: 150;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    text-align: center;
+    list-style: none;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: 1rem 2rem;
+
+      font-size: 3rem;
+      font-weight: 300;
+      text-decoration: none;
+
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 250%;
+      color: $color-white;
+      transition: all 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      color: $color-primary;
+      transform: scale(1.1);
+    }
+  }
+}

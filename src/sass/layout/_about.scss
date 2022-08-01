@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+
+.section-about {
+  margin-top: -20vh;
+  padding-block: 25rem;
+
+  @include responsive(laptop) {
+    padding-block: 18rem;
+    margin-top: -15vh;
+  }
+
+  @include responsive(landscape-tablet) {
+    margin-top: -10vh;
+  }
+
+  background-color: $color-gray-light;
+}

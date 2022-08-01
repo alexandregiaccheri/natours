@@ -1,0 +1,42 @@
+@use "../abstracts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 3rem;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+@include responsive(small-desktop) {
+  html {
+    font-size: 56.25%;
+  }
+
+  body {
+    padding: 2rem;
+  }
+}
+
+@include responsive(landscape-tablet) {
+  body {
+    padding: 0;
+  }
+}
+
+@include responsive(phone) {
+  html {
+    font-size: 50%;
+  }
+}
