@@ -19,7 +19,7 @@
     "start": "npm-run-all copy --parallel watch serve",
     "build": "npm-run-all copy:html build:*",
     "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map",
-    "publish": "npm-run-all copy:* build:* postbuild"
+    "publish": "npm-run-all copy build postbuild"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
