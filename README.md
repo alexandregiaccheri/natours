@@ -26,14 +26,14 @@ Landing page para uma agência de viagens fictícia. Página construída com div
 <td width=75%>
 
 ### Desktop
-<img src="https://lh6.googleusercontent.com/KhblVUvWNoBz4dyAdDzypFbPI9jWzdJ-DjZpEZOfgNpiyUaZ5aVCjGrAnRJLK-iI7hE=w2400">
+<img src="https://lh6.googleusercontent.com/9RmToHHJoTpZXGiU9ngTvlakjDZVg4PyhCuRL51NR5eQaPaLMubkTFDJXe0r1RxvjlY=w2400">
 
 </td>
 
 <td width=25%>
 
 ### Mobile
-<img src="https://lh4.googleusercontent.com/cq51sK4IxMjHW5Cv3McoMA1rXAlFgokB-h1RGtwLh9gw2t-0SkwmoXHeRRwa4uFCEIc=w2400">
+<img src="https://lh6.googleusercontent.com/wGUoFPaIqTfqLSnyWHEQDvsAdkcEJLmwb8ACeq5ANKxRL2faYddcxW4Z5Eg9MnEA-Zw=w2400">
 
 </td>
 
