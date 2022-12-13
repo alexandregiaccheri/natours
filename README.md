@@ -6,9 +6,9 @@ Landing page para uma agência de viagens fictícia. Página construída com div
 
 ## Visitar Site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1a97455a-d70a-4054-bc8f-95569f0ce42c/deploy-status)](https://app.netlify.com/sites/nexter-xande/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/36a1ffb7-0f89-4f6e-bb2c-b3b9d8940a85/deploy-status)](https://app.netlify.com/sites/natours-xande/deploys)
 
-[Versão live: nexter.xande.dev](https://nexter.xande.dev/)
+[Versão live: natours.xande.dev](https://natours.xande.dev/)
 
 ## Tecnologias aplicadas
 
